@@ -1,2 +1,3 @@
-webservers ansible_host=18.237.148.101 ansible_port=22
- 
+
+ [webservers]
+18.237.148.101 ansible_user=ubuntu
