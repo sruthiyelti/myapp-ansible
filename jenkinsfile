@@ -8,13 +8,7 @@ pipeline {
                 git 'https://github.com/sruthiyelti/myapp-ansible.git'
           }
         }
-        stage ('Build')
-        {
-            steps
-            {
-                sh label: '', script: 'mvn package'
-            }
-        }
+        
         stage('Ansible') {
            steps {
                ansiblePlaybook become: true, credentialsId: 'ansible-ubuntu', disableHostKeyChecking: true, installation: 'myansible', inventory: 'dev.inv', playbook: 'apache.yml'
